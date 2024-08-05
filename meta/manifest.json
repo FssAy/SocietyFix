@@ -1,0 +1,9 @@
+{
+    "name": "Society Fix",
+    "website_url": "https://github.com/FssAy/SocietyFix",
+    "description": "Removes/Reduces sexual deviations.",
+    "dependencies": [
+        "Venomaus-SODCommon-2.0.2"
+    ],
+    "version_number": "1.0.0"
+}
