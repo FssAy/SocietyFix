@@ -20,7 +20,7 @@ Made to remove/reduce sexual deviations from the game that are forced into our t
 - Some fixed transgender NPCs might still have the wrong outfits.
 - Some fixed transgender NPCs from male to female might still have facial hair. _(part of the outfits)_
 
-Report any other issues on the plugin's github repository.
+Report any other issues on the plugin's github [repository](https://github.com/FssAy/SocietyFix/issues).
 
 ## Source Code
 This plugin's source code can be found here: https://github.com/FssAy/SocietyFix
