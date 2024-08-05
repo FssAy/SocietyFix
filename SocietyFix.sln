@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocietyFix", "SocietyFix.csproj", "{AEC7C43D-1268-4F6B-8478-3CC688E91030}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEC7C43D-1268-4F6B-8478-3CC688E91030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC7C43D-1268-4F6B-8478-3CC688E91030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC7C43D-1268-4F6B-8478-3CC688E91030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC7C43D-1268-4F6B-8478-3CC688E91030}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8727276C-318C-4D5A-8F60-EACCAD74A81E}
+	EndGlobalSection
+EndGlobal
