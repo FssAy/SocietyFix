@@ -8,7 +8,9 @@ Made to remove/reduce sexual deviations from the game that are forced into our t
 ## Installation
 
 ### R2modman (recommended)
-1. Download the mod and all dependencies from the Online tab.
+1. Download plugin from the [releases](https://github.com/FssAy/SocietyFix/releases) tab.
+2. In r2modman go to Settings->Profile.
+3. Find "Import Local Mod" and select the downloaded zip file.
 
 ### Manual
 1. Download BepInEx (v6.0.667 or higher) from the official repository (follow the steps described there).
