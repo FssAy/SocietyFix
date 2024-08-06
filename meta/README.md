@@ -18,7 +18,6 @@ Made to remove/reduce sexual deviations from the game that are forced into our t
 3. Download and extract the plugin files into `Shadows of Doubt/BepInEx/plugins` directory.
 
 ## Known Issues
-- Homosexual relationships are not fully eradicated.
 - Some fixed transgender NPCs might still have the wrong outfits.
 - Some fixed transgender NPCs from male to female might still have facial hair. _(part of the outfits)_
 

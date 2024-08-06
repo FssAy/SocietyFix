@@ -1,5 +1,8 @@
 # CHANGELOG
 
+**1.0.1**
+- Fixed homosexual relationships
+
 **1.0.0**
 - Removed "non-binary" gender - Only "male" and "female" genders will be assigned to NPCs.
 - Removed transgenderism - NPCs will no longer wear clothes of opposite gender.

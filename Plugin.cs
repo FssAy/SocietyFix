@@ -24,6 +24,34 @@ public class Plugin : PluginController<Plugin, IConfigBindings>
         harmony.PatchAll();
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is patched!");
     }
+
+    public static void FixTrans(Human human)
+    {
+        if (human.gender != human.birthGender)
+        {
+            Plugin.Logger.LogInfo($"Fixing gender for: ID={human.humanID} [{human.gender} -> {human.birthGender}]");
+            human.gender = human.birthGender;
+        }
+    }
+
+    public static void FixSexuality(Human human)
+    {
+        human.attractedTo.Clear();
+        human.homosexuality = 0f;
+
+        switch (human.gender)
+        {
+            case Human.Gender.male:
+                human.genderScale = 0f;
+                human.attractedTo.Add(Human.Gender.female);
+                break;
+
+            case Human.Gender.female:
+                human.genderScale = 1f;
+                human.attractedTo.Add(Human.Gender.male);
+                break;
+        }
+    }
 }
 
 [HarmonyPatch(typeof(Human), "SetSexualityAndGender")]
@@ -33,27 +61,39 @@ public class Human_SetSexualityAndGender
     {
         if (SessionData.Instance.isFloorEdit || CityConstructor.Instance.generateNew)
         {
-            if (__instance.gender != __instance.birthGender)
+            Plugin.FixTrans(__instance);
+            Plugin.FixSexuality(__instance);
+        }
+    }
+}
+
+[HarmonyPatch(typeof(Human), "GenerateSuitableGenderAndSexualityForParnter")]
+public class Human_GenerateSuitableGenderAndSexualityForParnter
+{
+    public static void Postfix(Human __instance, Citizen newPartner)
+    {
+        if (SessionData.Instance.isFloorEdit || CityConstructor.Instance.generateNew)
+        {
+            if (__instance.birthGender != newPartner.birthGender)
             {
-                Plugin.Logger.LogInfo($"Fixing gender for: ID={__instance.humanID} [{__instance.gender} -> {__instance.birthGender}]");
-                __instance.gender = __instance.birthGender;
+                return;
             }
-
-            __instance.attractedTo.Clear();
-            __instance.homosexuality = 0f;
-
-            switch (__instance.gender)
+            
+            switch (newPartner.birthGender)
             {
                 case Human.Gender.male:
-                    __instance.genderScale = 0f;
-                    __instance.attractedTo.Add(Human.Gender.female);
+                    __instance.birthGender = Human.Gender.female;
                     break;
 
                 case Human.Gender.female:
-                    __instance.genderScale = 1f;
-                    __instance.attractedTo.Add(Human.Gender.male);
+                    __instance.birthGender = Human.Gender.male;
                     break;
             }
+
+            Plugin.FixTrans(__instance);
+            Plugin.FixSexuality(__instance);
+
+            Plugin.Logger.LogInfo($"Fixing homosexuality for: ID={__instance.humanID} {__instance.gender} (partner: ID={newPartner.humanID} {newPartner.gender})");
         }
     }
 }
